@@ -58,3 +58,22 @@ class UserUpdate(BaseModel):
                
             }
         }
+
+class ForgetPassword(BaseModel):
+    email: str
+    class Config:
+        schema_extra = {
+            "example": {
+                "email": "johndoe@example.com",
+            }
+        }
+    
+
+class ResetPassword(BaseModel):
+    password:str
+    class Config:
+        schema_extra = {
+            "example": {
+                "password": "password123"  
+            }
+        }

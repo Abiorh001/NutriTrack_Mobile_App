@@ -23,10 +23,12 @@ class User(Base):
     dietary_preference = Column(String(300))
     fitness_goal = Column(String(300))
     medical_condition = Column(Text)
+    email_confirmation_token = Column(String(128), default=None)
+    reset_token = Column(String(128), default=None)
     date_created= Column(DateTime, default=datetime.utcnow)
     date_updated= Column(DateTime, default=datetime.utcnow)
     role = Column(String, default="user")
-    foods = relationship("Food", back_populates="user", cascade="all, delete", passive_deletes=True)
+    # foods = relationship("Food", back_populates="user", cascade="all, delete", passive_deletes=True)
 
 
 #table for revoked token from our jwt token when
