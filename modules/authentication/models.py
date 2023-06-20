@@ -26,7 +26,7 @@ class User(Base):
     date_created= Column(DateTime, default=datetime.utcnow)
     date_updated= Column(DateTime, default=datetime.utcnow)
     role = Column(String, default="user")
-    # foods = relationship("Food", back_populates="user", cascade="all, delete", passive_deletes=True)
+    foods = relationship("Food", back_populates="user", cascade="all, delete", passive_deletes=True)
 
 
 #table for revoked token from our jwt token when
