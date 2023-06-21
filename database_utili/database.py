@@ -17,7 +17,7 @@ engine = create_engine(
     pool_size=10,  # Set an appropriate pool size based on your application's needs
     max_overflow=20,  # Set the max overflow to handle occasional spikes in traffic
     pool_pre_ping=True,  # Enable pool pre-ping to detect and refresh stale connections
-    echo=False  # Disable echoing SQL statements for production
+    echo=True  # Disable echoing SQL statements for production
 )
 
 # Create metadata and base class

@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer, Float, Date, DateTime, Text
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from database_utili.database import Base
 import uuid
 from datetime import datetime
@@ -28,7 +28,7 @@ class User(Base):
     date_created= Column(DateTime, default=datetime.utcnow)
     date_updated= Column(DateTime, default=datetime.utcnow)
     role = Column(String, default="user")
-    # foods = relationship("Food", back_populates="user", cascade="all, delete", passive_deletes=True)
+    food_logs = relationship("FoodLogging", backref="user", cascade="all, delete", passive_deletes=True)
 
 
 #table for revoked token from our jwt token when

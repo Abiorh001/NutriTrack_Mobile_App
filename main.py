@@ -3,6 +3,9 @@ from modules.authentication.routes import auth
 from fastapi_jwt_auth import AuthJWT
 from database_utili.schema import Settings
 from database_utili.database import metadata, engine
+from modules.user.routes import user
+from modules.calories_calculator.routes import calories
+from modules.food_logging.routes import food_log
 
 
 
@@ -25,6 +28,9 @@ metadata.create_all(engine)
 
 #adding our routes
 app.include_router(auth)
+app.include_router(user)
+app.include_router(calories)
+app.include_router(food_log)
 
 
 
